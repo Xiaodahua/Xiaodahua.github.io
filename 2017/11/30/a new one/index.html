@@ -27,13 +27,10 @@
 <meta property="og:site_name" content="Xiaodahua">
 <meta property="og:description" content="Axios 可以说是当前 Github 上最受关注的 HTTP 库，目前已经有超过 25k 的 star 数。作为 vue.js 官方推荐的 HTTP 库，必然有着过人之处。 Axios 的主要特性包括： 基于 Promise支持浏览器和 node.js可添加拦截器和转换请求和响应数据请求可以取消自动转换 JSON 数据客户端支持防范 XSRF支持各主流浏览器及 IE8+对比于 fetch，除了同">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/Xiaodahua/Xiaodahua.github.io/blob/master/img/avatar.jpg">
-<meta property="og:image" content="http://note.youdao.com/favicon.ico">
-<meta property="og:updated_time" content="2017-12-01T10:06:19.674Z">
+<meta property="og:updated_time" content="2017-12-01T10:08:39.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Axios-源码分析">
 <meta name="twitter:description" content="Axios 可以说是当前 Github 上最受关注的 HTTP 库，目前已经有超过 25k 的 star 数。作为 vue.js 官方推荐的 HTTP 库，必然有着过人之处。 Axios 的主要特性包括： 基于 Promise支持浏览器和 node.js可添加拦截器和转换请求和响应数据请求可以取消自动转换 JSON 数据客户端支持防范 XSRF支持各主流浏览器及 IE8+对比于 fetch，除了同">
-<meta name="twitter:image" content="https://github.com/Xiaodahua/Xiaodahua.github.io/blob/master/img/avatar.jpg">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -185,19 +182,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>Axios 可以说是当前 Github 上最受关注的 HTTP 库，目前已经有超过 25k 的 star 数。作为 vue.js 官方推荐的 HTTP 库，必然有着过人之处。</p>
 <p>Axios 的主要特性包括：</p>
-<p>基于 Promise<br>支持浏览器和 node.js<br>可添加拦截器和转换请求和响应数据<br>请求可以取消<br>自动转换 JSON 数据<br>客户端支持防范 XSRF<br>支持各主流浏览器及 IE8+<br>对比于 fetch，除了同样支持 Promise API 外，aixos 的确拥有更加丰富的功能，而这次的源码分析也主要是针对‘拦截器’和‘请求取消’。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/Xiaodahua/Xiaodahua.github.io/blob/master/img/avatar.jpg" alt="image" title="">
-                </div>
-                <div class="image-caption">image</div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://note.youdao.com/favicon.ico" alt="image" title="">
-                </div>
-                <div class="image-caption">image</div>
-            </figure></p>
+<p>基于 Promise<br>支持浏览器和 node.js<br>可添加拦截器和转换请求和响应数据<br>请求可以取消<br>自动转换 JSON 数据<br>客户端支持防范 XSRF<br>支持各主流浏览器及 IE8+<br>对比于 fetch，除了同样支持 Promise API 外，aixos 的确拥有更加丰富的功能，而这次的源码分析也主要是针对‘拦截器’和‘请求取消’。</p>
 
         </div>
 
@@ -205,7 +190,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-12-01T10:06:19.674Z" itemprop="dateUpdated">2017-12-01 18:06:19</time>
+    最后更新时间：<time datetime="2017-12-01T10:08:39.920Z" itemprop="dateUpdated">2017-12-01 18:08:39</time>
 </span><br>
 
 
