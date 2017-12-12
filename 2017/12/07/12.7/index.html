@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://i.imgur.com/B0JwS6N.png">
 <meta property="og:image" content="https://i.imgur.com/XPHrzqp.png">
 <meta property="og:image" content="https://i.imgur.com/IwCxXO3.png">
-<meta property="og:updated_time" content="2017-12-12T07:28:39.727Z">
+<meta property="og:updated_time" content="2017-12-12T07:30:25.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax跨域">
 <meta name="twitter:description" content="由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法： 1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式 1).  2).">
@@ -157,11 +157,11 @@
 </code></pre><p> <img src="https://i.imgur.com/B0JwS6N.png" alt=""><br>  注：在实际开发中，很多人会在本地调试接口，localhost的域名和公司的域名完全不一样，所有用了domain这种办法也无法产生效果，解决办法是修改c盘里的host文件，把本地地址localhost修改成公司域名或者公司二级域名，然后这种方法就可以使用了。<br>          下面是修改的域名指向：</p>
 <pre><code>#127.0.0.1  localhost
 127.0.0.1   公司.com
-</code></pre><h3 id="3、postMessage"><a href="#3、postMessage" class="headerlink" title="3、postMessage"></a>3、postMessage</h3><p>　　postMessage是h5的一个新功能之一，由于我们是一家做h5游戏的公司，不可避免的要嵌套iframe，方便数据提交等。<br>   这里假设，iframe的Id为 ‘iframe’；<br><img src="https://i.imgur.com/XPHrzqp.png" alt=""><br> 在ifame外面的js里面要写上<br><img src="https://i.imgur.com/IwCxXO3.png" alt=""><br>就这样~</p>
+</code></pre><h3 id="3、postMessage"><a href="#3、postMessage" class="headerlink" title="3、postMessage"></a>3、postMessage</h3><p>　　postMessage是h5的一个新功能之一，方便数据提交等。<br>   这里假设，iframe的Id为 ‘iframe’；<br><img src="https://i.imgur.com/XPHrzqp.png" alt=""><br> 在ifame外面的js里面要写上<br><img src="https://i.imgur.com/IwCxXO3.png" alt=""><br>就这样~</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年12月12日 15:28</p>
+        <p>最后更新： 2017年12月12日 15:30</p>
         <p>原始链接： <a class="post-url" href="/2017/12/07/12.7/" title="Ajax跨域">http://Xiaodahua.com/2017/12/07/12.7/</a></p>
         <footer>
             <a href="http://Xiaodahua.com">
