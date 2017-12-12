@@ -3,22 +3,28 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ajax跨域的完美解决方案 | Xiaodahua</title>
+  <title>Ajax跨域 | Xiaodahua</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="MinHow,MinHow's Blog" />
   
   <meta name="description" content="由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法： 1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过jav">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ajax跨域的完美解决方案">
+<meta property="og:title" content="Ajax跨域">
 <meta property="og:url" content="http://Xiaodahua.com/2017/12/07/12.7/index.html">
 <meta property="og:site_name" content="Xiaodahua">
-<meta property="og:description" content="由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法： 1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式   1).">
+<meta property="og:description" content="由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法： 1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式 1).  2).">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-07T10:26:45.362Z">
+<meta property="og:image" content="https://i.imgur.com/ARRl4uq.png">
+<meta property="og:image" content="https://i.imgur.com/FVmjfn9.png">
+<meta property="og:image" content="https://i.imgur.com/B0JwS6N.png">
+<meta property="og:image" content="https://i.imgur.com/XPHrzqp.png">
+<meta property="og:image" content="https://i.imgur.com/IwCxXO3.png">
+<meta property="og:updated_time" content="2017-12-12T07:28:39.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ajax跨域的完美解决方案">
-<meta name="twitter:description" content="由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法： 1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式   1).">
+<meta name="twitter:title" content="Ajax跨域">
+<meta name="twitter:description" content="由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法： 1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式 1).  2).">
+<meta name="twitter:image" content="https://i.imgur.com/ARRl4uq.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -122,7 +128,7 @@
         
   
     <h1 class="post-title" itemprop="name">
-      Ajax跨域的完美解决方案
+      Ajax跨域
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -145,15 +151,18 @@
       
             
             <p>由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法：</p>
-<p>1、jsonp访问<br> 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问；<br> 实现方式<br>   1).<br>      $.ajax({<br>              url:url,<br>              dataType:’jsonp’,<br>              data:’’,<br>              jsonp:’callback’,<br>              success:function(result) {<br>              },<br>      });<br>    2).<br>    $.getJSON(url+”?callback=?”,<br>      function(result) {<br>      });<br>      注：1】 jsonp只能用get请求，哪怕你用了post请求，也会自动给你转换成post;<br>      　　2】 jsonp 不仅可以用来获取数据，也可以用来提交数据。</p>
-<p>2、damain 方法<br>      　　在主域相同，子域不同的情况下可以用这种方法，修改域名指向，让他们指向同一域名，这种办法也只能解决主域相同而二级域名不同的情况，两个毫无关系的网址是不可以用这种方法的；<br>          document.domain = ‘a.com’<br>  注：在实际开发中，很多人会在本地调试接口，localhost的域名和公司的域名完全不一样，所有用了domain这种办法也无法产生效果，解决办法是修改c盘里的host文件，把本地地址localhost修改成公司域名或者公司二级域名，然后这种方法就可以使用了。<br>          下面是修改的域名指向：</p>
+<h3 id="1、jsonp访问"><a href="#1、jsonp访问" class="headerlink" title="1、jsonp访问"></a>1、jsonp访问</h3><p> 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式<br> 1).<br><img src="https://i.imgur.com/ARRl4uq.png" alt=""></p>
+<p> 2).<br> <img src="https://i.imgur.com/FVmjfn9.png" alt=""></p>
+<h3 id="2、damain-方法"><a href="#2、damain-方法" class="headerlink" title="2、damain 方法"></a>2、damain 方法</h3><pre><code>  　　在主域相同，子域不同的情况下可以用这种方法，修改域名指向，让他们指向同一域名，这种办法也只能解决主域相同而二级域名不同的情况，两个毫无关系的网址是不可以用这种方法的；
+</code></pre><p> <img src="https://i.imgur.com/B0JwS6N.png" alt=""><br>  注：在实际开发中，很多人会在本地调试接口，localhost的域名和公司的域名完全不一样，所有用了domain这种办法也无法产生效果，解决办法是修改c盘里的host文件，把本地地址localhost修改成公司域名或者公司二级域名，然后这种方法就可以使用了。<br>          下面是修改的域名指向：</p>
 <pre><code>#127.0.0.1  localhost
 127.0.0.1   公司.com
-</code></pre>
+</code></pre><h3 id="3、postMessage"><a href="#3、postMessage" class="headerlink" title="3、postMessage"></a>3、postMessage</h3><p>　　postMessage是h5的一个新功能之一，由于我们是一家做h5游戏的公司，不可避免的要嵌套iframe，方便数据提交等。<br>   这里假设，iframe的Id为 ‘iframe’；<br><img src="https://i.imgur.com/XPHrzqp.png" alt=""><br> 在ifame外面的js里面要写上<br><img src="https://i.imgur.com/IwCxXO3.png" alt=""><br>就这样~</p>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年12月07日 18:26</p>
-        <p>原始链接： <a class="post-url" href="/2017/12/07/12.7/" title="Ajax跨域的完美解决方案">http://Xiaodahua.com/2017/12/07/12.7/</a></p>
+        <p>最后更新： 2017年12月12日 15:28</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/07/12.7/" title="Ajax跨域">http://Xiaodahua.com/2017/12/07/12.7/</a></p>
         <footer>
             <a href="http://Xiaodahua.com">
                 <img src="/images/icon.jpg" alt="Xiaodahua">
@@ -179,7 +188,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Xiaodahua.com/2017/12/07/12.7/&title=《Ajax跨域的完美解决方案》 — Xiaodahua&pic=http://Xiaodahua.comimages/icon.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Xiaodahua.com/2017/12/07/12.7/&title=《Ajax跨域》 — Xiaodahua&pic=http://Xiaodahua.comimages/icon.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -189,7 +198,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Xiaodahua.com/2017/12/07/12.7/&title=《Ajax跨域的完美解决方案》 — Xiaodahua&source=start from zero" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Xiaodahua.com/2017/12/07/12.7/&title=《Ajax跨域》 — Xiaodahua&source=start from zero" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -199,7 +208,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ajax跨域的完美解决方案》 — Xiaodahua&url=http://Xiaodahua.com/2017/12/07/12.7/&via=http://Xiaodahua.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ajax跨域》 — Xiaodahua&url=http://Xiaodahua.com/2017/12/07/12.7/&via=http://Xiaodahua.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -230,6 +239,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、jsonp访问"><span class="post-toc-text">1、jsonp访问</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、damain-方法"><span class="post-toc-text">2、damain 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、postMessage"><span class="post-toc-text">3、postMessage</span></a></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
@@ -303,11 +318,57 @@
     <div class="sidebar-menu-box-container">
       
         <div id="sidebar-menu-box-categories" style="display: block;">
-            <a class="color5" href="" style="font-size: 15px;">HTTP</a><a class="color5" href="/categories/Hexo/" style="font-size: 15px;">Hexo</a><a class="color3" href="/categories/Laravel/" style="font-size: 15px;">Laravel</a><a class="color1" href="/categories/Linux/" style="font-size: 15px;">Linux</a><a class="color4" href="/categories/PHP/" style="font-size: 15px;">PHP</a><a class="color1" href="/categories/Tools/" style="font-size: 15px;">Tools</a><a class="color3" href="/categories/其他/" style="font-size: 15px;">其他</a><a class="color5" href="/categories/开源项目/" style="font-size: 15px;">开源项目</a><a class="color4" href="/categories/数据库/" style="font-size: 15px;">数据库</a><a class="color4" href="/categories/服务器/" style="font-size: 15px;">服务器</a><a class="color3" href="/categories/算法/" style="font-size: 15px;">算法</a><a class="color5" href="/categories/通讯协议/" style="font-size: 15px;">通讯协议</a>
+            <a class="color5"  style="font-size: 15px;">web</a>
+            <a class="color5"  style="font-size: 15px;">Hexo</a>
+            <a class="color3"  style="font-size: 15px;">Laravel</a>
+            <a class="color1"  style="font-size: 15px;">Linux</a>
+            <a class="color4"  style="font-size: 15px;">PHP</a>
+            <a class="color1"  style="font-size: 15px;">Tools</a>
+            <a  style="font-size: 15px;" class="color4">Git</a> 
+            <a  style="font-size: 15px;" class="color5">HTTP</a> 
+            <a class="color3"  style="font-size: 15px;">ajax</a>
+            <a class="color5"  style="font-size: 15px;">开源项目</a>
+            <a class="color4"  style="font-size: 15px;">数据库</a>
+            <a class="color4"  style="font-size: 15px;">服务器</a>
+            <a class="color3"  style="font-size: 15px;">算法</a>
+            <a class="color5"  style="font-size: 15px;">通讯协议</a>
         </div>
         <div id="sidebar-menu-box-tags">
             <div id="sidebar-menu-box-tags" style="display: block;">
-            <a href="/tags/Apache/" style="font-size: 15px;" class="color2">Apache</a> <a href="/tags/Api/" style="font-size: 15px;" class="color4">Api</a> <a href="/tags/CentOS/" style="font-size: 15px;" class="color2">CentOS</a> <a href="/tags/Git/" style="font-size: 15px;" class="color4">Git</a> <a href="/tags/HTTP/" style="font-size: 15px;" class="color5">HTTP</a> <a href="/tags/Hash/" style="font-size: 15px;" class="color5">Hash</a> <a href="/tags/Hexo/" style="font-size: 15px;" class="color5">Hexo</a> <a href="/tags/Homestead/" style="font-size: 15px;" class="color5">Homestead</a> <a href="/tags/Laravel/" style="font-size: 15px;" class="color3">Laravel</a> <a href="/tags/Lumen/" style="font-size: 15px;" class="color1">Lumen</a> <a href="/tags/Markdown/" style="font-size: 15px;" class="color4">Markdown</a> <a href="/tags/Memcached/" style="font-size: 15px;" class="color5">Memcached</a> <a href="/tags/MySQL/" style="font-size: 15px;" class="color1">MySQL</a> <a href="/tags/Nginx/" style="font-size: 15px;" class="color1">Nginx</a> <a href="/tags/OSI/" style="font-size: 15px;" class="color4">OSI</a> <a href="/tags/PHP/" style="font-size: 15px;" class="color4">PHP</a> <a href="/tags/PHP7/" style="font-size: 15px;" class="color5">PHP7</a> <a href="/tags/Queue/" style="font-size: 15px;" class="color1">Queue</a> <a href="/tags/RESTful/" style="font-size: 15px;" class="color3">RESTful</a> <a href="/tags/Redis/" style="font-size: 15px;" class="color1">Redis</a> <a href="/tags/SSH/" style="font-size: 15px;" class="color4">SSH</a> <a href="/tags/Shell/" style="font-size: 15px;" class="color1">Shell</a> <a href="/tags/Supervisor/" style="font-size: 15px;" class="color1">Supervisor</a> <a href="/tags/TCP/" style="font-size: 15px;" class="color4">TCP</a> <a href="/tags/UDP/" style="font-size: 15px;" class="color4">UDP</a> <a href="/tags/Validation/" style="font-size: 15px;" class="color1">Validation</a> <a href="/tags/vagrant/" style="font-size: 15px;" class="color3">vagrant</a> <a href="/tags/书籍/" style="font-size: 15px;" class="color3">书籍</a> <a href="/tags/分享/" style="font-size: 15px;" class="color3">分享</a> <a href="/tags/博客/" style="font-size: 15px;" class="color3">博客</a> <a href="/tags/开源项目/" style="font-size: 15px;" class="color5">开源项目</a> <a href="/tags/性能优化/" style="font-size: 15px;" class="color5">性能优化</a> <a href="/tags/算法/" style="font-size: 15px;" class="color3">算法</a> <a href="/tags/跨域请求/" style="font-size: 15px;" class="color5">跨域请求</a>
+            <a style="font-size: 15px;" class="color2">Apache</a> 
+            <a style="font-size: 15px;" class="color4">Api</a> 
+            <a  style="font-size: 15px;" class="color2">CentOS</a> 
+            <a  style="font-size: 15px;" class="color4">Git</a> 
+            <a  style="font-size: 15px;" class="color5">HTTP</a> 
+            <a   style="font-size: 15px;" class="color5">Hash</a> 
+            <a  style="font-size: 15px;" class="color5">Hexo</a> 
+            <a   style="font-size: 15px;" class="color5">Homestead</a> 
+            <a  style="font-size: 15px;" class="color3">Laravel</a> 
+            <a   style="font-size: 15px;" class="color1">Lumen</a> 
+            <a  style="font-size: 15px;" class="color4">Markdown</a> 
+            <a  style="font-size: 15px;" class="color5">Memcached</a>
+             <a style="font-size: 15px;" class="color1">MySQL</a> 
+             <a style="font-size: 15px;" class="color1">Nginx</a> 
+             <a  style="font-size: 15px;" class="color4">OSI</a> 
+             <a style="font-size: 15px;" class="color4">PHP</a> 
+             <a  style="font-size: 15px;" class="color5">PHP7</a> 
+             <a  style="font-size: 15px;" class="color1">Queue</a>
+              <a  style="font-size: 15px;" class="color3">RESTful</a>
+               <a style="font-size: 15px;" class="color1">Redis</a> 
+               <a style="font-size: 15px;" class="color4">SSH</a> 
+               <a style="font-size: 15px;" class="color1">Shell</a>
+                <a  style="font-size: 15px;" class="color1">Supervisor</a>
+                 <a style="font-size: 15px;" class="color4">TCP</a>
+                  <a  style="font-size: 15px;" class="color4">UDP</a> 
+                  <a  style="font-size: 15px;" class="color1">Validation</a> 
+                  <a  style="font-size: 15px;" class="color3">vagrant</a> 
+                  <a  style="font-size: 15px;" class="color3">书籍</a> 
+                  <a style="font-size: 15px;" class="color3">分享</a> 
+                  <a style="font-size: 15px;" class="color3">博客</a> 
+                  <a  style="font-size: 15px;" class="color5">开源项目</a> 
+                  <a style="font-size: 15px;" class="color5">性能优化</a> 
+                  <a  style="font-size: 15px;" class="color3">算法</a>
+                   <a style="font-size: 15px;" class="color5">跨域请求</a>
         </div>
         </div>
     </div>
