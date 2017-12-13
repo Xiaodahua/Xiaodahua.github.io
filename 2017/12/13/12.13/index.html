@@ -3,21 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Xiaodahua</title>
+  <title>如何用命令将本地项目上传到git | Xiaodahua</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="MinHow,MinHow's Blog" />
   
-  <meta name="description" content="start from zero">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xiaodahua">
-<meta property="og:url" content="http://Xiaodahua.com/index.html">
+  <meta name="description" content="1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库 git init  2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件 git add .  3、用命令 git commit告诉Git，把文件提交到仓库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何用命令将本地项目上传到git">
+<meta property="og:url" content="http://Xiaodahua.com/2017/12/13/12.13/index.html">
 <meta property="og:site_name" content="Xiaodahua">
-<meta property="og:description" content="start from zero">
+<meta property="og:description" content="1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库 git init  2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件 git add .  3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明git commit -m ‘first commit’  4">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-13T08:15:02.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xiaodahua">
-<meta name="twitter:description" content="start from zero">
+<meta name="twitter:title" content="如何用命令将本地项目上传到git">
+<meta name="twitter:description" content="1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库 git init  2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件 git add .  3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明git commit -m ‘first commit’  4">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -114,264 +115,169 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-    <article id="post-git常用命令速查表" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-12.13" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/13/git常用命令速查表/"  >Git常用命令总结</a>
+    <h1 class="post-title" itemprop="name">
+      如何用命令将本地项目上传到git
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-12-13
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
           
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="article-img">
-            <a href="/2017/12/13/git常用命令速查表/" >
-                
-                <img src="http://Xiaodahua.com/img/timg2.jpg" alt="Git常用命令总结" title="Git常用命令总结">
-                
+            
+            <p>1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库</p>
+<p><strong><em>git init</em></strong></p>
+<hr>
+<p>2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件</p>
+<p><strong><em>git add .</em></strong></p>
+<hr>
+<p>3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明<br><strong><em>git commit -m ‘first commit’</em></strong></p>
+<hr>
+<p>4、关联到远程库</p>
+<p><strong><em>git remote add origin 你的远程库地址</em></strong></p>
+<hr>
+<p>5、获取远程库与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）</p>
+<p><strong><em>git pull –rebase origin master</em></strong></p>
+<hr>
+<p>6、把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。执行此命令后会要求输入用户名、密码，验证通过后即开始上传。</p>
+<p><strong><em>git push -u origin master</em></strong></p>
+<hr>
+<p>7、状态查询命令</p>
+<p><strong><em>git status</em></strong></p>
+<hr>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2017年12月13日 16:15</p>
+        <p>原始链接： <a class="post-url" href="/2017/12/13/12.13/" title="如何用命令将本地项目上传到git">http://Xiaodahua.com/2017/12/13/12.13/</a></p>
+        <footer>
+            <a href="http://Xiaodahua.com">
+                <img src="/images/icon.jpg" alt="Xiaodahua">
+                Xiaodahua
             </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                git init
-在本地新建一个repo,进入一个项目目录,执行git init,会初始化一个repo,并在当前文件夹下创建一个.git文件夹.
-git clone
-获取一个url对应的远程Git repo, 创建一个local copy.
-一般的格式是git clone [url].
-clone下来的repo会以url最后一个斜线后面的名称命名,创建一个文件夹,如果想要...
-            </p>
-        </div>
+        </footer>
+    </div>
+</div>
+
       
+        
+            
+
         
     </div>
     <footer class="article-footer">
         
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Xiaodahua.com/2017/12/13/12.13/&title=《如何用命令将本地项目上传到git》 — Xiaodahua&pic=img/timg2.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Xiaodahua.com/2017/12/13/12.13/&title=《如何用命令将本地项目上传到git》 — Xiaodahua&source=start from zero" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Xiaodahua.com/2017/12/13/12.13/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何用命令将本地项目上传到git》 — Xiaodahua&url=http://Xiaodahua.com/2017/12/13/12.13/&via=http://Xiaodahua.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Xiaodahua.com/2017/12/13/12.13/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://Xiaodahua.com/2017/12/13/12.13/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
         <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-12-13</li>
             
             
         </ul>
-        
-            <a href="/2017/12/13/git常用命令速查表/#more" class="article-more-link" >more&gt;&gt;</a>
         
     </footer>
   </div>
 </article>
 
 
+
+<nav id="article-nav">
   
-    <article id="post-12.13" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+    <a href="/2017/12/13/git常用命令速查表/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Git常用命令总结
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/12/07/12.7/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Ajax跨域</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/13/12.13/"  >如何用命令将本地项目上传到git</a>
-    </h1>
-  
-
-          
-      </header>
+        <div id="SOHUCS" sid="12.13" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'true';
+        var conf = 'true';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
     
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/12/13/12.13/" >
-                
-                <img src="http://Xiaodahua.com/img/timg2.jpg" alt="如何用命令将本地项目上传到git" title="如何用命令将本地项目上传到git">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库
-git init
-
-2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件
-git add .
-
-3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明git commit -m ‘fir...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-12-13</li>
-            
-            
-        </ul>
-        
-            <a href="/2017/12/13/12.13/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-12.7" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/07/12.7/"  >Ajax跨域</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/12/07/12.7/" >
-                
-                <img src="http://Xiaodahua.com/undefined" alt="Ajax跨域" title="Ajax跨域">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法：
-1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； ...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-12-07</li>
-            
-            
-        </ul>
-        
-            <a href="/2017/12/07/12.7/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-a new one" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/30/a new one/"  >Axios-源码分析</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/11/30/a new one/" >
-                
-                <img src="http://Xiaodahua.com/undefined" alt="Axios-源码分析" title="Axios-源码分析">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Axios 可以说是当前 Github 上最受关注的 HTTP 库，目前已经有超过 25k 的 star 数。作为 vue.js 官方推荐的 HTTP 库，必然有着过人之处。
-Axios 的主要特性包括：
-基于 Promise支持浏览器和 node.js可添加拦截器和转换请求和响应数据请求可以取消自动转换 JSON 数据客户端支持防范 XSRF支持各主流浏览器及 IE8+...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-11-30</li>
-            
-            
-        </ul>
-        
-            <a href="/2017/11/30/a new one/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-文章标题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/30/文章标题/"  >AJAX</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/11/30/文章标题/" >
-                
-                <img src="http://Xiaodahua.com/img/timg2.jpg" alt="AJAX" title="AJAX">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-1.AJAXAJAX不是JavaScript的规范，它只是一个哥们“发明”的缩写：Asynchronous JavaScript and XML，意思就是用JavaScript执行异步网络请求。如果仔细观察一个Form的提交，你就会发现，一旦用户点击“Submit”按钮，表单开始提交，浏览器就会刷新页面，然后在新页面里告诉你操作是成功了还是失败了。如果不幸由于网络太慢或...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-11-30</li>
-            
-            
-        </ul>
-        
-            <a href="/2017/11/30/文章标题/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-
 </section>
         
       </div>
@@ -399,7 +305,7 @@ Axios 的主要特性包括：
   var mihoConfig = {
       root: "http://Xiaodahua.com",
       animate: true,
-      isHome: true,
+      isHome: false,
       share: true,
       reward: 0
   }

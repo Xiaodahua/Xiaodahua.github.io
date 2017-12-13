@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://i.imgur.com/XPHrzqp.png">
 <meta property="og:image" content="https://i.imgur.com/IwCxXO3.png">
 <meta property="og:image" content="https://i.imgur.com/0pBBoTm.png">
-<meta property="og:updated_time" content="2017-12-13T02:24:02.940Z">
+<meta property="og:updated_time" content="2017-12-13T03:37:46.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax跨域">
 <meta name="twitter:description" content="由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法： 1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式 1).  2).">
@@ -155,11 +155,11 @@
             <h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://i.imgur.com/UgkfBYl.jpg" alt=""></h2><p>由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法：</p>
 <h3 id="1、jsonp访问"><a href="#1、jsonp访问" class="headerlink" title="1、jsonp访问"></a>1、jsonp访问</h3><p> 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式<br> 1).<br><img src="https://i.imgur.com/ARRl4uq.png" alt=""></p>
 <p> 2).<br> <img src="https://i.imgur.com/FVmjfn9.png" alt=""></p>
-<h3 id="2、damain-方法"><a href="#2、damain-方法" class="headerlink" title="2、damain 方法"></a>2、damain 方法</h3><p>在主域相同，子域不同的情况下可以用这种方法，修改域名指向，让他们指向同一域名，这种办法也只能解决主域相同而二级域名不同的情况，两个毫无关系的网址是不可以用这种方法的；<br> <img src="https://i.imgur.com/B0JwS6N.png" alt=""><br>  注：在实际开发中，很多人会在本地调试接口，localhost的域名和公司的域名完全不一样，所有用了domain这种办法也无法产生效果，解决办法是修改c盘里的host文件，把本地地址localhost修改成公司域名或者公司二级域名，然后这种方法就可以使用了。<br>          下面是修改的域名指向：</p>
+<h3 id="2、domain-方法"><a href="#2、domain-方法" class="headerlink" title="2、domain 方法"></a>2、domain 方法</h3><p>在主域相同，子域不同的情况下可以用这种方法，修改域名指向，让他们指向同一域名，这种办法也只能解决主域相同而二级域名不同的情况，两个毫无关系的网址是不可以用这种方法的；<br> <img src="https://i.imgur.com/B0JwS6N.png" alt=""><br>  注：在实际开发中，很多人会在本地调试接口，localhost的域名和公司的域名完全不一样，所有用了domain这种办法也无法产生效果，解决办法是修改c盘里的host文件，把本地地址localhost修改成公司域名或者公司二级域名，然后这种方法就可以使用了。<br>          下面是修改的域名指向：</p>
 <pre><code>#127.0.0.1  localhost
 127.0.0.1   公司.com
 </code></pre><h3 id="3、postMessage"><a href="#3、postMessage" class="headerlink" title="3、postMessage"></a>3、postMessage</h3><p>　　postMessage是h5的一个新功能之一，方便数据提交等。<br>   这里假设，iframe的Id为 ‘iframe’；<br><img src="https://i.imgur.com/XPHrzqp.png" alt=""><br> 在ifame外面的js里面要写上<br><img src="https://i.imgur.com/IwCxXO3.png" alt=""></p>
-<h3 id="4-CORS"><a href="#4-CORS" class="headerlink" title="4.CORS"></a>4.CORS</h3><p>如果浏览器支持HTML5，那么就可以一劳永逸地使用新的跨域策略：CORS了。</p>
+<h3 id="4、CORS"><a href="#4、CORS" class="headerlink" title="4、CORS"></a>4、CORS</h3><p>如果浏览器支持HTML5，那么就可以一劳永逸地使用新的跨域策略：CORS了。</p>
 <p>CORS全称Cross-Origin Resource Sharing，是HTML5规范定义的如何跨域访问资源。</p>
 <p>了解CORS前，我们先搞明白概念：</p>
 <p>Origin表示本域，也就是浏览器当前页面的域。当JavaScript向外域（如sina.com）发起请求后，浏览器收到响应后，首先检查Access-Control-Allow-Origin是否包含本域，如果是，则此次跨域请求成功，如果不是，则请求失败，JavaScript将无法获取到响应的任何数据。<br><img src="https://i.imgur.com/0pBBoTm.png" alt=""><br>假设本域是my.com，外域是sina.com，只要响应头Access-Control-Allow-Origin为<a href="http://my.com，或者是*，本次请求就可以成功。" target="_blank" rel="noopener">http://my.com，或者是*，本次请求就可以成功。</a></p>
@@ -169,7 +169,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年12月13日 10:24</p>
+        <p>最后更新： 2017年12月13日 11:37</p>
         <p>原始链接： <a class="post-url" href="/2017/12/07/12.7/" title="Ajax跨域">http://Xiaodahua.com/2017/12/07/12.7/</a></p>
         <footer>
             <a href="http://Xiaodahua.com">
@@ -249,12 +249,22 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-text"></span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、jsonp访问"><span class="post-toc-text">1、jsonp访问</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、damain-方法"><span class="post-toc-text">2、damain 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、postMessage"><span class="post-toc-text">3、postMessage</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-CORS"><span class="post-toc-text">4.CORS</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-text"></span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、jsonp访问"><span class="post-toc-text">1、jsonp访问</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、domain-方法"><span class="post-toc-text">2、domain 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、postMessage"><span class="post-toc-text">3、postMessage</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、CORS"><span class="post-toc-text">4、CORS</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
+  
+    <a href="/2017/12/13/12.13/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          如何用命令将本地项目上传到git
+        
+      </span>
+    </a>
   
   
     <a href="/2017/11/30/a new one/" id="article-nav-older" class="article-nav-link-wrap">
