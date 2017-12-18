@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Xiaodahua">
 <meta property="og:description" content="1.正则表达式的基本语法“ab*”：表示一个字符串有一个a后面跟着零个或若干个b。（”a”, “ab”, “abbb”,……）；“ab+”：表示一个字符串有一个a后面跟着至少一个b或者更多；“ab?”：表示一个字符串有一个a后面跟着零个或者一个b；“a?b+$”：表示在字符串的末尾有零个或一个a跟着一个或几个b。“ab{2}”：表示一个字符串有一个a跟着2个b（”abb”）；“ab{2,}”：表示">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-18T06:27:43.094Z">
+<meta property="og:updated_time" content="2017-12-18T06:35:43.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式">
 <meta name="twitter:description" content="1.正则表达式的基本语法“ab*”：表示一个字符串有一个a后面跟着零个或若干个b。（”a”, “ab”, “abbb”,……）；“ab+”：表示一个字符串有一个a后面跟着至少一个b或者更多；“ab?”：表示一个字符串有一个a后面跟着零个或者一个b；“a?b+$”：表示在字符串的末尾有零个或一个a跟着一个或几个b。“ab{2}”：表示一个字符串有一个a跟着2个b（”abb”）；“ab{2,}”：表示">
@@ -165,10 +165,10 @@
 </code></pre><hr>
 <pre><code> 4.只能输入汉字的：
 &lt;input onkeyup=&quot;value=value.replace(/[^\u4E00-\u9FA5]/g,&apos;&apos;)&quot; onbeforepaste=&quot;clipboardData.setData(&apos;text&apos;,clipboardData.getData(&apos;text&apos;).replace(/[^\u4E00-\u9FA5]/g,&apos;&apos;))&quot; ID=&quot;Text4&quot; NAME=&quot;Text4&quot;&gt;
-</code></pre><h3 id="3-正则表达式的应用实例"><a href="#3-正则表达式的应用实例" class="headerlink" title="3.正则表达式的应用实例"></a>3.正则表达式的应用实例</h3><p>   <strong>1.校验登录名：</strong></p>
+</code></pre><h3 id="3-正则表达式的应用实例"><a href="#3-正则表达式的应用实例" class="headerlink" title="3.正则表达式的应用实例"></a>3.正则表达式的应用实例</h3><p><strong>校验登录名：</strong></p>
 <p>只能输入5-20个以字母开头、可带数字、“<em>”、“.”的字串/^[a-zA-Z]{1}([a-zA-Z0-9]|[.</em>]){4,19}$/<br>^[a-zA-Z]{1} 表示第一个字符要求是字母。([a-zA-Z0-9]|[.<em>]){4,19} 表示从第二位开始（因为它紧跟在上个表达式后面）的一个长度为4到9位的字符串，它要求是由大小写字母、数字或者特殊字符集[.</em>]组成。</p>
 <hr>
-<p><strong>2.校验用户姓名：</strong></p>
+<p><strong>校验用户姓名：</strong></p>
 <p>只能输入1-30个以字母开头的字串<br>/^[a-zA-Z]{1,30}$/ </p>
 <hr>
 <p><strong>校验密码</strong>：</p>
@@ -190,7 +190,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年12月18日 14:27</p>
+        <p>最后更新： 2017年12月18日 14:35</p>
         <p>原始链接： <a class="post-url" href="/2017/12/18/12.18/" title="正则表达式">http://Xiaodahua.com/2017/12/18/12.18/</a></p>
         <footer>
             <a href="http://Xiaodahua.com">
