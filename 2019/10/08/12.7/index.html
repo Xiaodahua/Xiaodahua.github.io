@@ -3,23 +3,31 @@
 <head>
   <meta charset="utf-8">
   
-  <title>如何用命令将本地项目上传到git | Xiaodahua</title>
+  <title>Ajax跨域 | Xiaodahua</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="xiaodahua,xiaodahua's Blog" />
   
-  <meta name="description" content="1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库 git init  2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件 git add .  3、用命令 git commit告诉Git，把文件提交到仓库">
-<meta name="keywords" content="git">
+  <meta name="description" content="由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法： 1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过jav">
+<meta name="keywords" content="ajax">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何用命令将本地项目上传到git">
-<meta property="og:url" content="http://Xiaodahua.com/2017/12/13/12.13/index.html">
+<meta property="og:title" content="Ajax跨域">
+<meta property="og:url" content="http://Xiaodahua.com/2019/10/08/12.7/index.html">
 <meta property="og:site_name" content="Xiaodahua">
-<meta property="og:description" content="1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库 git init  2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件 git add .  3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明git commit -m ‘first commit’  4">
+<meta property="og:description" content="由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法： 1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式 1).  2).">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-19T06:14:51.201Z">
+<meta property="og:image" content="https://i.imgur.com/UgkfBYl.jpg">
+<meta property="og:image" content="https://i.imgur.com/ARRl4uq.png">
+<meta property="og:image" content="https://i.imgur.com/FVmjfn9.png">
+<meta property="og:image" content="https://i.imgur.com/B0JwS6N.png">
+<meta property="og:image" content="https://i.imgur.com/XPHrzqp.png">
+<meta property="og:image" content="https://i.imgur.com/IwCxXO3.png">
+<meta property="og:image" content="https://i.imgur.com/0pBBoTm.png">
+<meta property="og:updated_time" content="2017-12-19T06:14:17.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何用命令将本地项目上传到git">
-<meta name="twitter:description" content="1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库 git init  2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件 git add .  3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明git commit -m ‘first commit’  4">
+<meta name="twitter:title" content="Ajax跨域">
+<meta name="twitter:description" content="由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法： 1、jsonp访问 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式 1).  2).">
+<meta name="twitter:image" content="https://i.imgur.com/UgkfBYl.jpg">
   
   
     <link rel="icon" href="/images/icon.jpg">
@@ -116,14 +124,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-12.13" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-12.7" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      如何用命令将本地项目上传到git
+      Ajax跨域
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -131,12 +139,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/git的使用/">git的使用</a>
+                      <a href="/categories/ajax/">ajax</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2017-12-13
+          <i class="fa fa-calendar"></i>  2019-10-08
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -152,31 +160,25 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库</p>
-<p><strong><em>git init</em></strong></p>
-<hr>
-<p>2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件</p>
-<p><strong><em>git add .</em></strong></p>
-<hr>
-<p>3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明<br><strong><em>git commit -m ‘first commit’</em></strong></p>
-<hr>
-<p>4、关联到远程库</p>
-<p><strong><em>git remote add origin 你的远程库地址</em></strong></p>
-<hr>
-<p>5、获取远程库与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）</p>
-<p><strong><em>git pull –rebase origin master</em></strong></p>
-<hr>
-<p>6、把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。执行此命令后会要求输入用户名、密码，验证通过后即开始上传。</p>
-<p><strong><em>git push -u origin master</em></strong></p>
-<hr>
-<p>7、状态查询命令</p>
-<p><strong><em>git status</em></strong></p>
-<hr>
+            <h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://i.imgur.com/UgkfBYl.jpg" alt=""></h2><p>由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法：</p>
+<h3 id="1、jsonp访问"><a href="#1、jsonp访问" class="headerlink" title="1、jsonp访问"></a>1、jsonp访问</h3><p> 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式<br> 1).<br><img src="https://i.imgur.com/ARRl4uq.png" alt=""></p>
+<p> 2).<br> <img src="https://i.imgur.com/FVmjfn9.png" alt=""></p>
+<h3 id="2、domain-方法"><a href="#2、domain-方法" class="headerlink" title="2、domain 方法"></a>2、domain 方法</h3><p>在主域相同，子域不同的情况下可以用这种方法，修改域名指向，让他们指向同一域名，这种办法也只能解决主域相同而二级域名不同的情况，两个毫无关系的网址是不可以用这种方法的；<br> <img src="https://i.imgur.com/B0JwS6N.png" alt=""><br>  注：在实际开发中，很多人会在本地调试接口，localhost的域名和公司的域名完全不一样，所有用了domain这种办法也无法产生效果，解决办法是修改c盘里的host文件，把本地地址localhost修改成公司域名或者公司二级域名，然后这种方法就可以使用了。<br>          下面是修改的域名指向：</p>
+<pre><code>#127.0.0.1  localhost
+127.0.0.1   公司.com
+</code></pre><h3 id="3、postMessage"><a href="#3、postMessage" class="headerlink" title="3、postMessage"></a>3、postMessage</h3><p>　　postMessage是h5的一个新功能之一，方便数据提交等。<br>   这里假设，iframe的Id为 ‘iframe’；<br><img src="https://i.imgur.com/XPHrzqp.png" alt=""><br> 在ifame外面的js里面要写上<br><img src="https://i.imgur.com/IwCxXO3.png" alt=""></p>
+<h3 id="4、CORS"><a href="#4、CORS" class="headerlink" title="4、CORS"></a>4、CORS</h3><p>如果浏览器支持HTML5，那么就可以一劳永逸地使用新的跨域策略：CORS了。</p>
+<p>CORS全称Cross-Origin Resource Sharing，是HTML5规范定义的如何跨域访问资源。</p>
+<p>了解CORS前，我们先搞明白概念：</p>
+<p>Origin表示本域，也就是浏览器当前页面的域。当JavaScript向外域（如sina.com）发起请求后，浏览器收到响应后，首先检查Access-Control-Allow-Origin是否包含本域，如果是，则此次跨域请求成功，如果不是，则请求失败，JavaScript将无法获取到响应的任何数据。<br><img src="https://i.imgur.com/0pBBoTm.png" alt=""><br>假设本域是my.com，外域是sina.com，只要响应头Access-Control-Allow-Origin为<a href="http://my.com，或者是*，本次请求就可以成功。" target="_blank" rel="noopener">http://my.com，或者是*，本次请求就可以成功。</a></p>
+<p>可见，跨域能否成功，取决于对方服务器是否愿意给你设置一个正确的Access-Control-Allow-Origin，决定权始终在对方手中。</p>
+<p>上面这种跨域请求，称之为“简单请求”。简单请求包括GET、HEAD和POST（POST的Content-Type类型<br>仅限application/x-www-form-urlencoded、multipart/form-data和text/plain），并且不能出现任何自定义头（例如，X-Custom: 12345），通常能满足90%的需求。</p>
+<p>无论你是否需要用JavaScript通过CORS跨域请求资源，你都要了解CORS的原理。最新的浏览器全面支持HTML5。在引用外域资源时，除了JavaScript和CSS外，都要验证CORS。</p>
 
             <div class="post-copyright">
     <div class="content">
         <p>最后更新： 2017年12月19日 14:14</p>
-        <p>原始链接： <a class="post-url" href="/2017/12/13/12.13/" title="如何用命令将本地项目上传到git">http://Xiaodahua.com/2017/12/13/12.13/</a></p>
+        <p>原始链接： <a class="post-url" href="/2019/10/08/12.7/" title="Ajax跨域">http://Xiaodahua.com/2019/10/08/12.7/</a></p>
         <footer>
             <a href="http://Xiaodahua.com">
                 <img src="/images/icon.jpg" alt="Xiaodahua">
@@ -202,7 +204,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Xiaodahua.com/2017/12/13/12.13/&title=《如何用命令将本地项目上传到git》 — Xiaodahua&pic=https://i.imgur.com/bAMwy9E.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Xiaodahua.com/2019/10/08/12.7/&title=《Ajax跨域》 — Xiaodahua&pic=https://i.imgur.com/Laq4KMp.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -212,22 +214,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Xiaodahua.com/2017/12/13/12.13/&title=《如何用命令将本地项目上传到git》 — Xiaodahua&source=start from zero" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Xiaodahua.com/2019/10/08/12.7/&title=《Ajax跨域》 — Xiaodahua&source=start from zero" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Xiaodahua.com/2017/12/13/12.13/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Xiaodahua.com/2019/10/08/12.7/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何用命令将本地项目上传到git》 — Xiaodahua&url=http://Xiaodahua.com/2017/12/13/12.13/&via=http://Xiaodahua.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ajax跨域》 — Xiaodahua&url=http://Xiaodahua.com/2019/10/08/12.7/&via=http://Xiaodahua.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Xiaodahua.com/2017/12/13/12.13/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Xiaodahua.com/2019/10/08/12.7/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -237,7 +239,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://Xiaodahua.com/2017/12/13/12.13/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://Xiaodahua.com/2019/10/08/12.7/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -249,7 +251,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/git/" class="color4">git</a>
+    <a href="/tags/ajax/" class="color5">ajax</a>
       
   </li>
 
@@ -260,22 +262,18 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#"><span class="post-toc-text"></span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、jsonp访问"><span class="post-toc-text">1、jsonp访问</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、domain-方法"><span class="post-toc-text">2、domain 方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、postMessage"><span class="post-toc-text">3、postMessage</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、CORS"><span class="post-toc-text">4、CORS</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
-    <a href="/2017/12/13/git常用命令速查表/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Git常用命令总结
-        
-      </span>
-    </a>
   
-  
-    <a href="/2017/11/30/a new one/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Axios-源码分析</span>
+    <a href="/2019/10/08/12.18/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">正则表达式</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -284,7 +282,7 @@
 
 
     
-        <div id="SOHUCS" sid="12.13" ></div>
+        <div id="SOHUCS" sid="12.7" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'true';
