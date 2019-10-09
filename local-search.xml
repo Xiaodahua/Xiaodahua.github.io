@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>字符编码</title>
+    <link href="undefined2019/10/09/10.9/"/>
+    <url>2019/10/09/10.9/</url>
+    
+    <content type="html"><![CDATA[<h3 id="1-字符编码"><a href="#1-字符编码" class="headerlink" title="1.字符编码"></a>1.字符编码</h3><p>字符串也是一种数据类型，但是，字符串比较特殊的是还有一个编码问题。<br>因为计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。最早的计算机在设计时采用8个比特（bit）作为一个字节（byte），所以，一个字节能表示的最大的整数就是255（二进制11111111=十进制255），如果要表示更大的整数，就必须用更多的字节。比如两个字节可以表示的最大整数是65535，4个字节可以表示的最大整数是4294967295。<br>由于计算机是美国人发明的，因此，最早只有127个字符被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码，比如大写字母A的编码是65，小写字母z的编码是122。<br>但是要处理中文显然一个字节是不够的，至少需要两个字节，而且还不能和ASCII编码冲突，所以，中国制定了GB2312编码，用来把中文编进去。<br>你可以想得到的是，全世界有上百种语言，日本把日文编到Shift_JIS里，韩国把韩文编到Euc-kr里，各国有各国的标准，就会不可避免地出现冲突，结果就是，在多语言混合的文本中，显示出来会有乱码</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>code</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>code</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Ajax跨域</title>
+    <link href="undefined2019/10/08/12.7/"/>
+    <url>2019/10/08/12.7/</url>
+    
+    <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://i.imgur.com/UgkfBYl.jpg" srcset="/img/loading.gif" alt=""></h2><p>由于浏览器实现的同源策略的限制，XmlHttpRequest只允许请求当前源（域名、协议、端口）的资源，所以AJAX是不允许跨域的。这里提供自己常用的三种方法：</p><h3 id="1、jsonp访问"><a href="#1、jsonp访问" class="headerlink" title="1、jsonp访问"></a>1、jsonp访问</h3><p> 　　JSONP(JSON with Padding)是一个非官方的协议，它允许在服务器端集成Script tags返回至客户端，通过javascript callback的形式实现跨域访问； 实现方式<br> 1).<br><img src="https://i.imgur.com/ARRl4uq.png" srcset="/img/loading.gif" alt=""><br>     *<br> 2).<br> <img src="https://i.imgur.com/FVmjfn9.png" srcset="/img/loading.gif" alt=""></p><h3 id="2、domain-方法"><a href="#2、domain-方法" class="headerlink" title="2、domain 方法"></a>2、domain 方法</h3><p>在主域相同，子域不同的情况下可以用这种方法，修改域名指向，让他们指向同一域名，这种办法也只能解决主域相同而二级域名不同的情况，两个毫无关系的网址是不可以用这种方法的；<br> <img src="https://i.imgur.com/B0JwS6N.png" srcset="/img/loading.gif" alt=""><br>  注：在实际开发中，很多人会在本地调试接口，localhost的域名和公司的域名完全不一样，所有用了domain这种办法也无法产生效果，解决办法是修改c盘里的host文件，把本地地址localhost修改成公司域名或者公司二级域名，然后这种方法就可以使用了。<br>          下面是修改的域名指向：</p><pre><code>      #127.0.0.1  localhost      127.0.0.1   公司.com</code></pre><h3 id="3、postMessage"><a href="#3、postMessage" class="headerlink" title="3、postMessage"></a>3、postMessage</h3><p>　　postMessage是h5的一个新功能之一，方便数据提交等。<br>   这里假设，iframe的Id为 ‘iframe’；<br><img src="https://i.imgur.com/XPHrzqp.png" srcset="/img/loading.gif" alt=""><br> 在ifame外面的js里面要写上<br><img src="https://i.imgur.com/IwCxXO3.png" srcset="/img/loading.gif" alt=""></p><h3 id="4、CORS"><a href="#4、CORS" class="headerlink" title="4、CORS"></a>4、CORS</h3><p>如果浏览器支持HTML5，那么就可以一劳永逸地使用新的跨域策略：CORS了。</p><p>CORS全称Cross-Origin Resource Sharing，是HTML5规范定义的如何跨域访问资源。</p><p>了解CORS前，我们先搞明白概念：</p><p>Origin表示本域，也就是浏览器当前页面的域。当JavaScript向外域（如sina.com）发起请求后，浏览器收到响应后，首先检查Access-Control-Allow-Origin是否包含本域，如果是，则此次跨域请求成功，如果不是，则请求失败，JavaScript将无法获取到响应的任何数据。<br><img src="https://i.imgur.com/0pBBoTm.png" srcset="/img/loading.gif" alt=""><br>假设本域是my.com，外域是sina.com，只要响应头Access-Control-Allow-Origin为<a href="http://my.com，或者是*，本次请求就可以成功。" target="_blank" rel="noopener">http://my.com，或者是*，本次请求就可以成功。</a></p><p>可见，跨域能否成功，取决于对方服务器是否愿意给你设置一个正确的Access-Control-Allow-Origin，决定权始终在对方手中。</p><p>上面这种跨域请求，称之为“简单请求”。简单请求包括GET、HEAD和POST（POST的Content-Type类型<br>仅限application/x-www-form-urlencoded、multipart/form-data和text/plain），并且不能出现任何自定义头（例如，X-Custom: 12345），通常能满足90%的需求。</p><p>无论你是否需要用JavaScript通过CORS跨域请求资源，你都要了解CORS的原理。最新的浏览器全面支持HTML5。在引用外域资源时，除了JavaScript和CSS外，都要验证CORS。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>ajax</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ajax</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>正则表达式</title>
+    <link href="undefined2019/10/08/12.18/"/>
+    <url>2019/10/08/12.18/</url>
+    
+    <content type="html"><![CDATA[<h3 id="1-正则表达式的基本语法"><a href="#1-正则表达式的基本语法" class="headerlink" title="1.正则表达式的基本语法"></a>1.正则表达式的基本语法</h3><p>“ab*”：表示一个字符串有一个a后面跟着零个或若干个b。（”a”, “ab”, “abbb”,……）；<br>“ab+”：表示一个字符串有一个a后面跟着至少一个b或者更多；<br>“ab?”：表示一个字符串有一个a后面跟着零个或者一个b；<br>“a?b+$”：表示在字符串的末尾有零个或一个a跟着一个或几个b。<br>“ab{2}”：表示一个字符串有一个a跟着2个b（”abb”）；<br>“ab{2,}”：表示一个字符串有一个a跟着至少2个b；<br>“ab{3,5}”：表示一个字符串有一个a跟着3到5个b。<br>还有一个’¦’，表示“或”操作：”hi¦hello”：表示一个字符串里有”hi”或者”hello”；<br>“(b¦cd)ef”： 表示”bef”或”cdef”；</p><p>“(a¦b)*c”：表示一串”a””b”混合的字符串后面跟一个”c”； </p><p>‘.’可以替代任何字符</p><p>“a.[0-9]”：表示一个字符串有一个”a”后面跟着一个任意字符和一个数字；</p><p>“^.{3}$”：表示有任意三个字符的字符串（长度为3个字符）； </p><p>方括号表示某些字符允许在一个字符串中的某一特定位置出现：<br>“[ab]”：表示一个字符串有一个”a”或”b”（相当于”a¦b”）；</p><p>“[a-d]”：表示一个字符串包含小写的’a’到’d’中的一个（相当于”a¦b¦c¦d”或者”[abcd]”）； </p><p>“^[a-zA-Z]”：表示一个以字母开头的字符串； </p><p>“[0-9]%”：表示一个百分号前有一位的数字；</p><p>“,[a-zA-Z0-9]$”：表示一个字符串以一个逗号后面跟着一个字母或数字结束。  </p><h3 id="2-正则表达式验证控制文本框的输入字符类型"><a href="#2-正则表达式验证控制文本框的输入字符类型" class="headerlink" title="2.正则表达式验证控制文本框的输入字符类型"></a>2.正则表达式验证控制文本框的输入字符类型</h3><pre><code> 1.只能输入数字和英文的 &lt;input onkeyup=&quot;value=value.replace(/[\W]/g,&#39;&#39;) &quot;onbeforepaste=&quot;clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(/[^\d]/g,&#39;&#39;))&quot; ID=&quot;Text1&quot; NAME=&quot;Text1&quot;&gt;</code></pre><hr><pre><code> 2.只能输入数字的：&lt;input onkeyup=&quot;value=value.replace(/[^\d]/g,&#39;&#39;) &quot; onbeforepaste=&quot;clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(/[^\d]/g,&#39;&#39;))&quot; ID=&quot;Text2&quot; NAME=&quot;Text2&quot;&gt;</code></pre><hr><pre><code> 3.只能输入全角的： &lt;input onkeyup=&quot;value=value.replace(/[^\uFF00-\uFFFF]/g,&#39;&#39;)&quot; onbeforepaste=&quot;clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(/[^\uFF00-\uFFFF]/g,&#39;&#39;))&quot; ID=&quot;Text3&quot; NAME=&quot;Text3&quot;&gt;</code></pre><hr><pre><code> 4.只能输入汉字的：&lt;input onkeyup=&quot;value=value.replace(/[^\u4E00-\u9FA5]/g,&#39;&#39;)&quot; onbeforepaste=&quot;clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(/[^\u4E00-\u9FA5]/g,&#39;&#39;))&quot; ID=&quot;Text4&quot; NAME=&quot;Text4&quot;&gt;</code></pre><h3 id="3-正则表达式的应用实例"><a href="#3-正则表达式的应用实例" class="headerlink" title="3.正则表达式的应用实例"></a>3.正则表达式的应用实例</h3><p><strong>校验登录名：</strong></p><p>只能输入5-20个以字母开头、可带数字、“<em>”、“.”的字串/^[a-zA-Z]{1}([a-zA-Z0-9]|[.</em>]){4,19}$/<br>^[a-zA-Z]{1} 表示第一个字符要求是字母。([a-zA-Z0-9]|[.<em>]){4,19} 表示从第二位开始（因为它紧跟在上个表达式后面）的一个长度为4到9位的字符串，它要求是由大小写字母、数字或者特殊字符集[.</em>]组成。</p><hr><p><strong>校验用户姓名：</strong></p><p>只能输入1-30个以字母开头的字串<br>/^[a-zA-Z]{1,30}$/ </p><hr><p><strong>校验密码</strong>：</p><p>只能输入6-20个字母、数字、下划线<br>/^(\w){6,20}$/<br>\w：用于匹配字母，数字或下划线字符 </p><hr><p><strong>校验普通电话、传真号码：</strong></p><p>可以“+”或数字开头，可含有“-” 和 “ ”<br>/^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,12})+$/<br>\d：用于匹配从0到9的数字；<br>“?”元字符规定其前导对象必须在目标对象中连续出现零次或一次<br>可以匹配的字符串如：+123 -999 999 ； +123-999 999 ；123 999 999 ；+123 999999等</p><hr><p><strong>校验URL</strong></p><p>/^http[s]{0,1}:\/\/.+$/ 或 /^http[s]{0,1}:\/\/.{1,n}$/ (表示url串的长度为length(“https://”) + n )<br> \ / ：表示字符“/”。<br>. 表示所有字符的集</p><ul><li>等同于{1,}，就是1到正无穷吧</li><li></li></ul><hr><p> <strong>校验纯中文字符</strong></p><p>^[\u4E00-\u9FA5]+$/<br>[\u4E00-\u9FA5] ：估计是中文字符集的范围吧</p><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>正则规则表</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>正则表达式</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Meta标签</title>
+    <link href="undefined2017/12/26/12.26meta/"/>
+    <url>2017/12/26/12.26meta/</url>
+    
+    <content type="html"><![CDATA[<h3 id="A-keywords-关键字"><a href="#A-keywords-关键字" class="headerlink" title="A. keywords(关键字)"></a>A. keywords(关键字)</h3><p>说明：用于告诉搜索引擎，你网页的关键字。<br>   <code>&lt;meta name=&quot;keywords&quot; content=&quot;Lxxyx,博客，文科生，前端&quot;&gt;</code></p><h3 id="B-description-网站内容的描述"><a href="#B-description-网站内容的描述" class="headerlink" title="B. description(网站内容的描述)"></a>B. description(网站内容的描述)</h3><p>说明：用于告诉搜索引擎，你网站的主要内容。<br>    <code>&lt;meta name=&quot;description&quot; content=&quot;描述&quot;&gt;</code></p><h3 id="C-viewport-移动端的窗口"><a href="#C-viewport-移动端的窗口" class="headerlink" title="C. viewport(移动端的窗口)"></a>C. viewport(移动端的窗口)</h3><p>说明：设计移动端网页。。。<br>    <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code></p><h3 id="D-robots-属性值-–-定义网页搜索引擎索引方式"><a href="#D-robots-属性值-–-定义网页搜索引擎索引方式" class="headerlink" title="D.robots 属性值 – 定义网页搜索引擎索引方式"></a>D.robots 属性值 – 定义网页搜索引擎索引方式</h3><pre><code> 1.robots用于定义网页搜索引擎索引方式 2.robots出现在name属性中，使用content属性定义网页搜索引擎索引方式 3.通过使用meta的robots属性值可以为没有文件上传权限的用户提供/robots.txt文件的所有功能</code></pre><p>1.robots取值<br>     <code>&lt;meta name=&quot;robots&quot; content=&quot;robotterms&quot; /&gt;</code> </p><p>通常有如下几种取值：none，noindex，nofollow，all，index和follow。</p><p>none：搜索引擎将忽略此网页，等价于noindex，nofollow。</p><p>noindex：搜索引擎不索引此网页。</p><p>nofollow：搜索引擎不继续通过此网页的链接索引搜索其它的网页</p><p>all：搜索引擎将索引此网页与继续通过此网页的链接索引，等价于index，follow。</p><p>index：搜索引擎索引此网页。<br>follow：搜索引擎继续通过此网页的链接索引搜索其它的网页。</p><h3 id="E-author-作者"><a href="#E-author-作者" class="headerlink" title="E. author(作者)"></a>E. author(作者)</h3><p>说明：用于标注网页作者<br>    <code>&lt;meta name=&quot;author&quot; content=&quot;xiao,***@qq.com&quot;&gt;</code></p><h3 id="F-generator-网页制作软件"><a href="#F-generator-网页制作软件" class="headerlink" title="F. generator(网页制作软件)"></a>F. generator(网页制作软件)</h3><pre><code>`&lt;meta name=&quot;generator&quot; content=&quot;Sublime Text3&quot;&gt;`</code></pre><h3 id="G-copyright-版权"><a href="#G-copyright-版权" class="headerlink" title="G. copyright(版权)"></a>G. copyright(版权)</h3><pre><code>`&lt;meta name=&quot;copyright&quot; content=&quot;Lxxyx&quot;&gt;版权所有。`</code></pre><h3 id="H-revisit-after-搜索引擎爬虫重访时间"><a href="#H-revisit-after-搜索引擎爬虫重访时间" class="headerlink" title="H. revisit-after(搜索引擎爬虫重访时间)"></a>H. revisit-after(搜索引擎爬虫重访时间)</h3><p>说明：如果页面不是经常更新，为了减轻搜索引擎爬虫对服务器带来的压力，可以设置一个爬虫的重访时间。如果重访时间过短，爬虫将按它们定义的默认时间来访问。<br>    <code>&lt;meta name=&quot;revisit-after&quot; content=&quot;7 days&quot; &gt;</code></p><h3 id="I-renderer-双核浏览器渲染方式"><a href="#I-renderer-双核浏览器渲染方式" class="headerlink" title="I. renderer(双核浏览器渲染方式)"></a>I. renderer(双核浏览器渲染方式)</h3><pre><code>`&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt; //默webkit内核</code></pre><p>   <code>&lt;meta name=&quot;renderer&quot; content=&quot;ie-comp&quot;&gt; //默认IE兼容模式</code><br>   `<meta name="renderer" content="ie-stand"> //默认IE标准模式``</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>meta</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>meta</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Git常用命令总结</title>
+    <link href="undefined2017/12/13/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
+    <url>2017/12/13/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/</url>
+    
+    <content type="html"><![CDATA[<p><strong>git init</strong></p><pre><code> 在本地新建一个repo,进入一个项目目录,执行git init,会初始化一个repo,并在当前文件夹下创建一个.git文件夹.</code></pre><p><strong>git clone</strong></p><pre><code> 获取一个url对应的远程Git repo, 创建一个local copy. 一般的格式是git clone [url]. clone下来的repo会以url最后一个斜线后面的名称命名,创建一个文件夹,如果想要指定特定的名称,可以git clone [url] newname指定.</code></pre><p><strong>git status</strong></p><pre><code> 查询repo的状态. git status -s: -s表示short, -s的输出标记会有两列,第一列是对staging区域而言,第二列是对working目录而言.</code></pre><p><strong>git log</strong></p><pre><code> show commit history of a branch. git log --oneline --number: 每条log只显示一行,显示number条. git log --oneline --graph:可以图形化地表示出分支合并历史. git log branchname可以显示特定分支的log. git log --oneline branch1 ^branch2,可以查看在分支1,却不在分支2中的提交.^表示排除这个分支(Window下可能要给^branch2加上引号). git log --decorate会显示出tag信息. git log --author=[author name] 可以指定作者的提交历史. git log --since --before --until --after 根据提交时间筛选log. --no-merges可以将merge的commits排除在外. git log --grep 根据commit信息过滤log: git log --grep=keywords 默认情况下, git log --grep --author是OR的关系,即满足一条即被返回,如果你想让它们是AND的关系,可以加上--all-match的option. git log -S: filter by introduced diff. 比如: git log -SmethodName (注意S和后面的词之间没有等号分隔). git log -p: show patch introduced at each commit. 每一个提交都是一个快照(snapshot),Git会把每次提交的diff计算出来,作为一个patch显示给你看. 另一种方法是git show [SHA]. git log --stat: show diffstat of changes introduced at each commit. 同样是用来看改动的相对信息的,--stat比-p的输出更简单一些.</code></pre><p><strong>git add</strong></p><pre><code> 在提交之前,Git有一个暂存区(staging area),可以放入新添加的文件或者加入新的改动. commit时提交的改动是上一次加入到staging area中的改动,而不是我们disk上的改动. git add . 会递归地添加当前工作目录中的所有文件.</code></pre><p><strong>git diff</strong></p><pre><code> 不加参数的git diff: show diff of unstaged changes. 此命令比较的是工作目录中当前文件和暂存区域快照之间的差异,也就是修改之后还没有暂存起来的变化内容. 若要看已经暂存起来的文件和上次提交时的快照之间的差异,可以用: git diff --cached 命令. show diff of staged changes. (Git 1.6.1 及更高版本还允许使用 git diff --staged，效果是相同的). git diff HEAD show diff of all staged or unstated changes. 也即比较woking directory和上次提交之间所有的改动. 如果想看自从某个版本之后都改动了什么,可以用: git diff [version tag] 跟log命令一样,diff也可以加上--stat参数来简化输出. git diff [branchA] [branchB]可以用来比较两个分支. 它实际上会返回一个由A到B的patch,不是我们想要的结果. 一般我们想要的结果是两个分支分开以后各自的改动都是什么,是由命令: git diff [branchA]…[branchB]给出的. 实际上它是:git diff $(git merge-base [branchA] [branchB]) [branchB]的结果.</code></pre><p><strong>git commit</strong></p><pre><code> 提交已经被add进来的改动. git commit -m “the commit message&quot; git commit -a 会先把所有已经track的文件的改动add进来,然后提交(有点像svn的一次提交,不用先暂存). 对于没有track的文件,还是需要git add一下. git commit --amend 增补提交. 会使用与当前提交节点相同的父节点进行一次新的提交,旧的提交将会被取消.</code></pre><p><strong>git reset</strong></p><pre><code> undo changes and commits. 这里的HEAD关键字指的是当前分支最末梢最新的一个提交.也就是版本库中该分支上的最新版本. git reset HEAD: unstage files from index and reset pointer to HEAD 这个命令用来把不小心add进去的文件从staged状态取出来,可以单独针对某一个文件操作: git reset HEAD - - filename, 这个- - 也可以不加. git reset --soft move HEAD to specific commit reference, index and staging are untouched. git reset --hard unstage files AND undo any changes in the working directory since last commit. 使用git reset —hard HEAD进行reset,即上次提交之后,所有staged的改动和工作目录的改动都会消失,还原到上次提交的状态. 这里的HEAD可以被写成任何一次提交的SHA-1. 不带soft和hard参数的git reset,实际上带的是默认参数mixed. 总结: git reset --mixed id,是将git的HEAD变了(也就是提交记录变了),但文件并没有改变，(也就是working tree并没有改变). 取消了commit和add的内容. git reset --soft id. 实际上，是git reset –mixed id 后,又做了一次git add.即取消了commit的内容. git reset --hard id.是将git的HEAD变了,文件也变了. 按改动范围排序如下: soft (commit) &lt; mixed (commit + add) &lt; hard (commit + add + local working)</code></pre><p><strong>git revert</strong></p><pre><code> 反转撤销提交.只要把出错的提交(commit)的名字(reference)作为参数传给命令就可以了. git revert HEAD: 撤销最近的一个提交. git revert会创建一个反向的新提交,可以通过参数-n来告诉Git先不要提交.</code></pre><p><strong>git rm</strong></p><pre><code> git rm file: 从staging区移除文件,同时也移除出工作目录. git rm --cached: 从staging区移除文件,但留在工作目录中. git rm --cached从功能上等同于git reset HEAD,清除了缓存区,但不动工作目录树.</code></pre><p><strong>git clean</strong></p><pre><code> git clean是从工作目录中移除没有track的文件. 通常的参数是git clean -df: -d表示同时移除目录,-f表示force,因为在git的配置文件中, clean.requireForce=true,如果不加-f,clean将会拒绝执行.</code></pre><p><strong>git mv</strong></p><pre><code> git rm - - cached orig; mv orig new; git add new</code></pre><p><strong>git stash</strong></p><pre><code> 把当前的改动压入一个栈. git stash将会把当前目录和index中的所有改动(但不包括未track的文件)压入一个栈,然后留给你一个clean的工作状态,即处于上一次最新提交处. git stash list会显示这个栈的list. git stash apply:取出stash中的上一个项目(stash@{0}),并且应用于当前的工作目录. 也可以指定别的项目,比如git stash apply stash@{1}. 如果你在应用stash中项目的同时想要删除它,可以用git stash pop 删除stash中的项目: git stash drop: 删除上一个,也可指定参数删除指定的一个项目. git stash clear: 删除所有项目.</code></pre><p><strong>git branch</strong></p><pre><code> git branch可以用来列出分支,创建分支和删除分支. git branch -v可以看见每一个分支的最后一次提交. git branch: 列出本地所有分支,当前分支会被星号标示出. git branch (branchname): 创建一个新的分支(当你用这种方式创建分支的时候,分支是基于你的上一次提交建立的).  git branch -d (branchname): 删除一个分支. 删除remote的分支: git push (remote-name) :(branch-name): delete a remote branch. 这个是因为完整的命令形式是: git push remote-name local-branch:remote-branch 而这里local-branch的部分为空,就意味着删除了remote-branch</code></pre><p><strong>git checkout</strong></p><pre><code> git checkout (branchname)   切换到一个分支. git checkout -b (branchname): 创建并切换到新的分支. 这个命令是将git branch newbranch和git checkout newbranch合在一起的结果. checkout还有另一个作用:替换本地改动: git checkout --&lt;filename&gt; 此命令会使用HEAD中的最新内容替换掉你的工作目录中的文件.已添加到暂存区的改动以及新文件都不会受到影响. 注意:git checkout filename会删除该文件中所有没有暂存和提交的改动,这个操作是不可逆的.</code></pre><p><strong>git merge</strong></p><pre><code> 把一个分支merge进当前的分支. git merge [alias]/[branch] 把远程分支merge到当前分支. 如果出现冲突,需要手动修改,可以用git mergetool. 解决冲突的时候可以用到git diff,解决完之后用git add添加,即表示冲突已经被resolved.</code></pre><p><strong>git tag</strong></p><pre><code> tag a point in history as import. 会在一个提交上建立永久性的书签,通常是发布一个release版本或者ship了什么东西之后加tag. 比如: git tag v1.0 git tag -a v1.0, -a参数会允许你添加一些信息,即make an annotated tag. 当你运行git tag -a命令的时候,Git会打开一个编辑器让你输入tag信息. 我们可以利用commit SHA来给一个过去的提交打tag: git tag -a v0.9 XXXX push的时候是不包含tag的,如果想包含,可以在push时加上--tags参数. fetch的时候,branch HEAD可以reach的tags是自动被fetch下来的, tags that aren’t reachable from branch heads will be skipped.如果想确保所有的tags都被包含进来,需要加上--tags选项.</code></pre><p><strong>git remote</strong></p><pre><code> list, add and delete remote repository aliases. 因为不需要每次都用完整的url,所以Git为每一个remote repo的url都建立一个别名,然后用git remote来管理这个list. git remote: 列出remote aliases. 如果你clone一个project,Git会自动将原来的url添加进来,别名就叫做:origin. git remote -v:可以看见每一个别名对应的实际url. git remote add [alias] [url]: 添加一个新的remote repo. git remote rm [alias]: 删除一个存在的remote alias. git remote rename [old-alias] [new-alias]: 重命名. git remote set-url [alias] [url]:更新url. 可以加上—push和fetch参数,为同一个别名set不同的存取地址.</code></pre><p><strong>git fetch</strong></p><pre><code> download new branches and data from a remote repository. 可以git fetch [alias]取某一个远程repo,也可以git fetch --all取到全部repo fetch将会取到所有你本地没有的数据,所有取下来的分支可以被叫做remote branches,它们和本地分支一样(可以看diff,log等,也可以merge到其他分支),但是Git不允许你checkout到它们. </code></pre><p><strong>git pull</strong></p><pre><code> fetch from a remote repo and try to merge into the current branch. pull == fetch + merge FETCH_HEAD git pull会首先执行git fetch,然后执行git merge,把取来的分支的head merge到当前分支.这个merge操作会产生一个新的commit.     如果使用--rebase参数,它会执行git rebase来取代原来的git merge.</code></pre><p><strong>git rebase</strong></p><pre><code> --rebase不会产生合并的提交,它会将本地的所有提交临时保存为补丁(patch),放在”.git/rebase”目录中,然后将当前分支更新到最新的分支尖端,最后把保存的补丁应用到分支上. rebase的过程中,也许会出现冲突,Git会停止rebase并让你解决冲突,在解决完冲突之后,用git add去更新这些内容,然后无需执行commit,只需要: git rebase --continue就会继续打余下的补丁. git rebase --abort将会终止rebase,当前分支将会回到rebase之前的状态.</code></pre><p><strong>git push</strong></p><pre><code> push your new branches and data to a remote repository. git push [alias] [branch] 将会把当前分支merge到alias上的[branch]分支.如果分支已经存在,将会更新,如果不存在,将会添加这个分支. 如果有多个人向同一个remote repo push代码, Git会首先在你试图push的分支上运行git log,检查它的历史中是否能看到server上的branch现在的tip,如果本地历史中不能看到server的tip,说明本地的代码不是最新的,Git会拒绝你的push,让你先fetch,merge,之后再push,这样就保证了所有人的改动都会被考虑进来.</code></pre><p><strong>git reflog</strong></p><pre><code> git reflog是对reflog进行管理的命令,reflog是git用来记录引用变化的一种机制,比如记录分支的变化或者是HEAD引用的变化. 当git reflog不指定引用的时候,默认列出HEAD的reflog. HEAD@{0}代表HEAD当前的值,HEAD@{3}代表HEAD在3次变化之前的值. git会将变化记录到HEAD对应的reflog文件中,其路径为.git/logs/HEAD, 分支的reflog文件都放在.git/logs/refs目录下的子目录中.</code></pre><p><strong>特殊符号:</strong></p><pre><code> ^代表父提交,当一个提交有多个父提交时,可以通过在^后面跟上一个数字,表示第几个父提交: ^相当于^1. ~&lt;n&gt;相当于连续的&lt;n&gt;个^.</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Git常用命令</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>如何用命令将本地项目上传到git</title>
+    <link href="undefined2017/12/13/12.13/"/>
+    <url>2017/12/13/12.13/</url>
+    
+    <content type="html"><![CDATA[<p>1、（先进入项目文件夹）通过命令 git init 把这个目录变成git可以管理的仓库</p><p><strong><em>git init</em></strong></p><hr><p>2、把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件</p><p><strong><em>git add .</em></strong></p><hr><p>3、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明<br><strong><em>git commit -m ‘first commit’</em></strong></p><hr><p>4、关联到远程库</p><p><strong><em>git remote add origin 你的远程库地址</em></strong></p><hr><p>5、获取远程库与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）</p><p><strong><em>git pull –rebase origin master</em></strong></p><hr><p>6、把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。执行此命令后会要求输入用户名、密码，验证通过后即开始上传。</p><p><strong><em>git push -u origin master</em></strong></p><hr><p>7、状态查询命令</p><p><strong><em>git status</em></strong></p><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>git的使用</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Axios-源码分析</title>
+    <link href="undefined2017/11/30/a%20new%20one/"/>
+    <url>2017/11/30/a%20new%20one/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://i.imgur.com/5CJJNmY.jpg" srcset="/img/loading.gif" alt=""><br>Axios 可以说是当前 Github 上最受关注的 HTTP 库，目前已经有超过 25k 的 star 数。作为 vue.js 官方推荐的 HTTP 库，必然有着过人之处。</p><p>Axios 的主要特性包括：</p><p>基于 Promise<br>支持浏览器和 node.js<br>可添加拦截器和转换请求和响应数据<br>请求可以取消<br>自动转换 JSON 数据<br>客户端支持防范 XSRF<br>支持各主流浏览器及 IE8+<br>对比于 fetch，除了同样支持 Promise API 外，aixos 的确拥有更加丰富的功能，而这次的源码分析也主要是针对‘拦截器’和‘请求取消’。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>axios</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>axios</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>AJAX</title>
+    <link href="undefined2017/11/30/%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98/"/>
+    <url>2017/11/30/%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p><img src="https://i.imgur.com/gcLWGkQ.jpg" srcset="/img/loading.gif" alt=""></p><h3 id="1-AJAX"><a href="#1-AJAX" class="headerlink" title="1.AJAX"></a>1.AJAX</h3><p>AJAX不是JavaScript的规范，它只是一个哥们“发明”的缩写：Asynchronous JavaScript and XML，意思就是用JavaScript执行异步网络请求。<br>如果仔细观察一个Form的提交，你就会发现，一旦用户点击“Submit”按钮，表单开始提交，浏览器就会刷新页面，然后在新页面里告诉你操作是成功了还是失败了。如果不幸由于网络太慢或者其他原因，就会得到一个404页面。</p><p>这就是Web的运作原理：一次HTTP请求对应一个页面。</p><p>如果要让用户留在当前页面中，同时发出新的HTTP请求，就必须用JavaScript发送这个新请求，接收到数据后，再用JavaScript更新页面，这样一来，用户就感觉自己仍然停留在当前页面，但是数据却可以不断地更新。</p><p>最早大规模使用AJAX的就是Gmail，Gmail的页面在首次加载后，剩下的所有数据都依赖于AJAX来更新。</p><p>用JavaScript写一个完整的AJAX代码并不复杂，但是需要注意：AJAX请求是异步执行的，也就是说，要通过回调函数获得响应。</p><p>在现代浏览器上写AJAX主要依靠XMLHttpRequest对象：<br><img src="https://i.imgur.com/181rjkx.png" srcset="/img/loading.gif" alt=""><br><img src="https://i.imgur.com/IO2kDRo.png" srcset="/img/loading.gif" alt=""></p><h3 id="2-安全限制"><a href="#2-安全限制" class="headerlink" title="2.安全限制"></a>2.安全限制</h3><p>上面代码的URL使用的是相对路径。如果你把它改为’<a href="http://www.sina.com.cn/&#39;，再运行，肯定报错。在Chrome的控制台里，还可以看到错误信息。" target="_blank" rel="noopener">http://www.sina.com.cn/&#39;，再运行，肯定报错。在Chrome的控制台里，还可以看到错误信息。</a></p><p>这是因为浏览器的同源策略导致的。默认情况下，JavaScript在发送AJAX请求时，URL的域名必须和当前页面完全一致。</p><p>完全一致的意思是，域名要相同（www.example.com和example.com不同），协议要相同（http和https不同），端口号要相同（默认是:80端口，它和:8080就不同）。有的浏览器口子松一点，允许端口不同，大多数浏览器都会严格遵守这个限制。</p><p>那是不是用JavaScript无法请求外域（就是其他网站）的URL了呢？方法还是有的，大概有这么几种：</p><p>一是通过Flash插件发送HTTP请求，这种方式可以绕过浏览器的安全限制，但必须安装Flash，并且跟Flash交互。不过Flash用起来麻烦，而且现在用得也越来越少了。</p><p>二是通过在同源域名下架设一个代理服务器来转发，JavaScript负责把请求发送到代理服务器：<br><img src="https://i.imgur.com/GCRUFLn.png" srcset="/img/loading.gif" alt=""><br>代理服务器再把结果返回，这样就遵守了浏览器的同源策略。这种方式麻烦之处在于需要服务器端额外做开发。</p><p>第三种方式称为JSONP，它有个限制，只能用GET请求，并且要求返回JavaScript。这种方式跨域实际上是利用了浏览器允许跨域引用JavaScript资源：<br><img src="https://i.imgur.com/PEIValH.png" srcset="/img/loading.gif" alt=""><br>JSONP通常以函数调用的形式返回，例如，返回JavaScript内容如下：<br><img src="https://i.imgur.com/gTnVTlR.png" srcset="/img/loading.gif" alt=""></p><p>这样一来，我们如果在页面中先准备好foo()函数，然后给页面动态加一个<script>节点，相当于动态读取外域的JavaScript资源，最后就等着接收回调了。</p></script></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>ajax</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ajax</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>

@@ -1,157 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
+
+
+
+
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="不熬夜 (1/1)">
+  <meta name="author" content="Xiaodahua">
+  <meta name="keywords" content="">
+  <title>正则表达式 ~ Xiaodahua</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
   
-  <title>正则表达式 | Xiaodahua</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
   
-    <meta name="keywords" content="xiaodahua,xiaodahua's Blog" />
-  
-  <meta name="description" content="1.正则表达式的基本语法“ab*”：表示一个字符串有一个a后面跟着零个或若干个b。（”a”, “ab”, “abbb”,……）；“ab+”：表示一个字符串有一个a后面跟着至少一个b或者更多；“ab?”：表示一个字符串有一个a后面跟着零个或者一个b；“a?b+$”：表示在字符串的末尾有零个或一个a跟着一个或几个b。“ab">
-<meta name="keywords" content="正则表达式">
-<meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式">
-<meta property="og:url" content="http://Xiaodahua.com/2019/10/08/12.18/index.html">
-<meta property="og:site_name" content="Xiaodahua">
-<meta property="og:description" content="1.正则表达式的基本语法“ab*”：表示一个字符串有一个a后面跟着零个或若干个b。（”a”, “ab”, “abbb”,……）；“ab+”：表示一个字符串有一个a后面跟着至少一个b或者更多；“ab?”：表示一个字符串有一个a后面跟着零个或者一个b；“a?b+$”：表示在字符串的末尾有零个或一个a跟着一个或几个b。“ab{2}”：表示一个字符串有一个a跟着2个b（”abb”）；“ab{2,}”：表示">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-08T09:02:23.927Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="1.正则表达式的基本语法“ab*”：表示一个字符串有一个a后面跟着零个或若干个b。（”a”, “ab”, “abbb”,……）；“ab+”：表示一个字符串有一个a后面跟着至少一个b或者更多；“ab?”：表示一个字符串有一个a后面跟着零个或者一个b；“a?b+$”：表示在字符串的末尾有零个或一个a跟着一个或几个b。“ab{2}”：表示一个字符串有一个a跟着2个b（”abb”）；“ab{2,}”：表示">
-  
-  
-    <link rel="icon" href="/images/icon.jpg">
-  
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/pace.min.js"></script>
-  
+  <link rel="stylesheet" href="/css/main.css"  >
 
   
-  
-
 </head>
 
+
 <body>
-  <div id="container">
-      <header id="header">
-    <div id="banner"></div>
-    <div id="header-outer">
-        <div id="header-menu" class="header-menu-pos animated">
-            <div class="header-menu-container">
-                <a href="/" class="left">
-                    <span class="site-title">xiaodahua&#39;s Blog</span>
-                </a>
-                <nav id="header-menu-nav" class="right">
-                    
-                    <a  href="/">
-                        <i class="fa fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    
-                    <a  href="/archives">
-                        <i class="fa fa-archive"></i>
-                        <span>Archives</span>
-                    </a>
-                    
-                    <a  href="/about">
-                        <i class="fa fa-user"></i>
-                        <span>About</span>
-                    </a>
-                    
-                </nav>
-                <a class="mobile-header-menu-button">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
-        </div>
-        <div id="header-row">
-            <div id="logo">
-                <a href="/">
-                    <img src="/images/icon.jpg" alt="logo">
-                </a>
-            </div>
-            <div class="header-info">
-                <div id="header-title">
-                    
-                    <h2>
-                        xiaodahua&#39;s Blog
-                    </h2>
-                    
-                </div>
-                <div id="header-description">
-                    
-                    <h3>
-                        一个专注 WEeeeeeB 的 小白
-                    </h3>
-                    
-                </div>
-            </div>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                        <a title="Github"
-                         target="_blank" 
-                         href="//github.com/Xiaodahua
-                         ">
-                            <i class="fa fa-github fa-2x"></i></a>
-                    
-                        <a title="Weibo"
-                         target="_blank" 
-                         href="//weibo.com/#
-                         ">
-                            <i class="fa fa-weibo fa-2x"></i></a>
-                    
-                        <a title="Twitter"
-                         target="_blank" 
-                         href="//twitter.com/xiaodahua
-                         ">
-                            <i class="fa fa-twitter fa-2x"></i></a>
-                    
-                </div>
-            </nav>
-        </div>
-    </div>
-</header>
-      <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-12.18" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Xiaodahua</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-  
-    <h1 class="post-title" itemprop="name">
-      正则表达式
-    </h1>
-    <div class="post-title-bar">
-      <ul>
           
-              <li>
-                  <i class="fa fa-book"></i>
-                  
-                      <a href="/categories/正则规则表/">正则规则表</a>
-                  
-              </li>
           
-        <li>
-          <i class="fa fa-calendar"></i>  2019-10-08
-        </li>
-        <li>
-          <i class="fa fa-eye"></i>
-          <span id="busuanzi_value_page_pv"></span>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
       </ul>
     </div>
-  
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期二, 十月 8日 2019, 5:02 下午</p>
+            
+          </div>
 
           
-      </header>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
     
-    <div class="article-entry post-content" itemprop="articleBody">
       
-            
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
             <h3 id="1-正则表达式的基本语法"><a href="#1-正则表达式的基本语法" class="headerlink" title="1.正则表达式的基本语法"></a>1.正则表达式的基本语法</h3><p>“ab*”：表示一个字符串有一个a后面跟着零个或若干个b。（”a”, “ab”, “abbb”,……）；<br>“ab+”：表示一个字符串有一个a后面跟着至少一个b或者更多；<br>“ab?”：表示一个字符串有一个a后面跟着零个或者一个b；<br>“a?b+$”：表示在字符串的末尾有零个或一个a跟着一个或几个b。<br>“ab{2}”：表示一个字符串有一个a跟着2个b（”abb”）；<br>“ab{2,}”：表示一个字符串有一个a跟着至少2个b；<br>“ab{3,5}”：表示一个字符串有一个a跟着3到5个b。<br>还有一个’¦’，表示“或”操作：”hi¦hello”：表示一个字符串里有”hi”或者”hello”；<br>“(b¦cd)ef”： 表示”bef”或”cdef”；</p>
 <p>“(a¦b)*c”：表示一串”a””b”混合的字符串后面跟一个”c”； </p>
 <p>‘.’可以替代任何字符</p>
@@ -162,17 +134,17 @@
 <p>“^[a-zA-Z]”：表示一个以字母开头的字符串； </p>
 <p>“[0-9]%”：表示一个百分号前有一位的数字；</p>
 <p>“,[a-zA-Z0-9]$”：表示一个字符串以一个逗号后面跟着一个字母或数字结束。  </p>
-<h3 id="2-正则表达式验证控制文本框的输入字符类型"><a href="#2-正则表达式验证控制文本框的输入字符类型" class="headerlink" title="2.正则表达式验证控制文本框的输入字符类型"></a>2.正则表达式验证控制文本框的输入字符类型</h3><pre><code>1.只能输入数字和英文的
-&lt;input onkeyup=&quot;value=value.replace(/[\W]/g,&apos;&apos;) &quot;onbeforepaste=&quot;clipboardData.setData(&apos;text&apos;,clipboardData.getData(&apos;text&apos;).replace(/[^\d]/g,&apos;&apos;))&quot; ID=&quot;Text1&quot; NAME=&quot;Text1&quot;&gt;
+<h3 id="2-正则表达式验证控制文本框的输入字符类型"><a href="#2-正则表达式验证控制文本框的输入字符类型" class="headerlink" title="2.正则表达式验证控制文本框的输入字符类型"></a>2.正则表达式验证控制文本框的输入字符类型</h3><pre><code> 1.只能输入数字和英文的
+ &lt;input onkeyup=&quot;value=value.replace(/[\W]/g,&#39;&#39;) &quot;onbeforepaste=&quot;clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(/[^\d]/g,&#39;&#39;))&quot; ID=&quot;Text1&quot; NAME=&quot;Text1&quot;&gt;
 </code></pre><hr>
 <pre><code> 2.只能输入数字的：
-&lt;input onkeyup=&quot;value=value.replace(/[^\d]/g,&apos;&apos;) &quot; onbeforepaste=&quot;clipboardData.setData(&apos;text&apos;,clipboardData.getData(&apos;text&apos;).replace(/[^\d]/g,&apos;&apos;))&quot; ID=&quot;Text2&quot; NAME=&quot;Text2&quot;&gt;
+&lt;input onkeyup=&quot;value=value.replace(/[^\d]/g,&#39;&#39;) &quot; onbeforepaste=&quot;clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(/[^\d]/g,&#39;&#39;))&quot; ID=&quot;Text2&quot; NAME=&quot;Text2&quot;&gt;
 </code></pre><hr>
-<pre><code>3.只能输入全角的：
-&lt;input onkeyup=&quot;value=value.replace(/[^\uFF00-\uFFFF]/g,&apos;&apos;)&quot; onbeforepaste=&quot;clipboardData.setData(&apos;text&apos;,clipboardData.getData(&apos;text&apos;).replace(/[^\uFF00-\uFFFF]/g,&apos;&apos;))&quot; ID=&quot;Text3&quot; NAME=&quot;Text3&quot;&gt;
+<pre><code> 3.只能输入全角的：
+ &lt;input onkeyup=&quot;value=value.replace(/[^\uFF00-\uFFFF]/g,&#39;&#39;)&quot; onbeforepaste=&quot;clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(/[^\uFF00-\uFFFF]/g,&#39;&#39;))&quot; ID=&quot;Text3&quot; NAME=&quot;Text3&quot;&gt;
 </code></pre><hr>
 <pre><code> 4.只能输入汉字的：
-&lt;input onkeyup=&quot;value=value.replace(/[^\u4E00-\u9FA5]/g,&apos;&apos;)&quot; onbeforepaste=&quot;clipboardData.setData(&apos;text&apos;,clipboardData.getData(&apos;text&apos;).replace(/[^\u4E00-\u9FA5]/g,&apos;&apos;))&quot; ID=&quot;Text4&quot; NAME=&quot;Text4&quot;&gt;
+&lt;input onkeyup=&quot;value=value.replace(/[^\u4E00-\u9FA5]/g,&#39;&#39;)&quot; onbeforepaste=&quot;clipboardData.setData(&#39;text&#39;,clipboardData.getData(&#39;text&#39;).replace(/[^\u4E00-\u9FA5]/g,&#39;&#39;))&quot; ID=&quot;Text4&quot; NAME=&quot;Text4&quot;&gt;
 </code></pre><h3 id="3-正则表达式的应用实例"><a href="#3-正则表达式的应用实例" class="headerlink" title="3.正则表达式的应用实例"></a>3.正则表达式的应用实例</h3><p><strong>校验登录名：</strong></p>
 <p>只能输入5-20个以字母开头、可带数字、“<em>”、“.”的字串/^[a-zA-Z]{1}([a-zA-Z0-9]|[.</em>]){4,19}$/<br>^[a-zA-Z]{1} 表示第一个字符要求是字母。([a-zA-Z0-9]|[.<em>]){4,19} 表示从第二位开始（因为它紧跟在上个表达式后面）的一个长度为4到9位的字符串，它要求是由大小写字母、数字或者特殊字符集[.</em>]组成。</p>
 <hr>
@@ -196,311 +168,167 @@
 <p>^[\u4E00-\u9FA5]+$/<br>[\u4E00-\u9FA5] ：估计是中文字符集的范围吧</p>
 <hr>
 
-            <div class="post-copyright">
-    <div class="content">
-        <p>最后更新： 2019年10月08日 17:02</p>
-        <p>原始链接： <a class="post-url" href="/2019/10/08/12.18/" title="正则表达式">http://Xiaodahua.com/2019/10/08/12.18/</a></p>
-        <footer>
-            <a href="http://Xiaodahua.com">
-                <img src="/images/icon.jpg" alt="Xiaodahua">
-                Xiaodahua
-            </a>
-        </footer>
-    </div>
-</div>
-
-      
-        
+            <hr>
+          </div>
+          <br>
+          <div>
             
-
-        
-    </div>
-    <footer class="article-footer">
-        
-        
-<div class="post-share">
-    <a href="javascript:;" id="share-sub" class="post-share-fab">
-        <i class="fa fa-share-alt"></i>
-    </a>
-    <div class="post-share-list" id="share-list">
-        <ul class="share-icons">
-          <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://Xiaodahua.com/2019/10/08/12.18/&title=《正则表达式》 — Xiaodahua&pic=https://i.imgur.com/SdXbz57.jpg" data-title="微博">
-              <i class="fa fa-weibo"></i>
-            </a>
-          </li>
-          <li>
-            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
-              <i class="fa fa-weixin"></i>
-            </a>
-          </li>
-          <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://Xiaodahua.com/2019/10/08/12.18/&title=《正则表达式》 — Xiaodahua&source=start from zero" data-title="QQ">
-              <i class="fa fa-qq"></i>
-            </a>
-          </li>
-          <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://Xiaodahua.com/2019/10/08/12.18/" data-title="Facebook">
-              <i class="fa fa-facebook"></i>
-            </a>
-          </li>
-          <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《正则表达式》 — Xiaodahua&url=http://Xiaodahua.com/2019/10/08/12.18/&via=http://Xiaodahua.com" data-title="Twitter">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://Xiaodahua.com/2019/10/08/12.18/" data-title="Google+">
-              <i class="fa fa-google-plus"></i>
-            </a>
-          </li>
-        </ul>
-     </div>
-</div>
-<div class="post-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;" id="wxShare-close">×</a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://Xiaodahua.com/2019/10/08/12.18/" alt="微信分享二维码">
-</div>
-
-<div class="mask"></div>
-
-        
-        <ul class="article-footer-menu">
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%AD%A3%E5%88%99%E8%A7%84%E5%88%99%E8%A1%A8">正则规则表</a>
+                  &nbsp;
+                
+              </p>
             
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">正则表达式</a>
+              
+            </p>
             
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/正则表达式/" class="color1">正则表达式</a>
-      
-  </li>
-
-        </ul>
-        
-    </footer>
-  </div>
-</article>
-
-
-    <aside class="post-toc-pos post-toc-top" id="post-toc">
-        <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-正则表达式的基本语法"><span class="post-toc-text">1.正则表达式的基本语法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-正则表达式验证控制文本框的输入字符类型"><span class="post-toc-text">2.正则表达式验证控制文本框的输入字符类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-正则表达式的应用实例"><span class="post-toc-text">3.正则表达式的应用实例</span></a></li></ol>
-        </nav>
-    </aside>
-    
-
-<nav id="article-nav">
-  
-    <a href="/2019/10/08/12.7/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Ajax跨域
-        
-      </span>
-    </a>
-  
-  
-    <a href="/2017/12/26/12.26meta/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Meta标签</span>
-      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-    </a>
-  
-</nav>
-
-
-
-    
-        <div id="SOHUCS" sid="12.18" ></div>
-<script type="text/javascript">
-    (function(){
-        var appid = 'true';
-        var conf = 'true';
-        var width = window.innerWidth || document.documentElement.clientWidth;
-        if (width < 960) {
-            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-    
-</section>
-        
+              <p class="note note-warning">当风停住脚步时候，已经轮回了几个春秋</p>
+            
+          </div>
+        </div>
       </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-      
     </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
   </div>
 </footer>
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  var mihoConfig = {
-      root: "http://Xiaodahua.com",
-      animate: true,
-      isHome: false,
-      share: true,
-      reward: 0
-  }
-</script>
-<div class="sidebar">
-    <div id="sidebar-search" title="Search">
-        <i class="fa fa-search"></i>
-    </div>
-    <div id="sidebar-category" title="Categories">
-        <i class="fa fa-book"></i>
-    </div>
-    <div id="sidebar-tag" title="Tags">
-        <i class="fa fa-tags"></i>
-    </div>
-    <div id="sidebar-top">
-        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
-    </div>
-</div>
-<div class="sidebar-menu-box" id="sidebar-menu-box">
-    <div class="sidebar-menu-box-container">
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+  <script src="/js/lazyload.js" ></script>
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "正则表达式&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
       
-        <div id="sidebar-menu-box-categories" style="display: block;">
-            <a class="color5"  style="font-size: 15px;">web</a>
-            <a class="color5"  style="font-size: 15px;">Hexo</a>
-            <a class="color3"  style="font-size: 15px;">Laravel</a>
-            <a class="color1"  style="font-size: 15px;">Linux</a>
-            <a class="color4"  style="font-size: 15px;">PHP</a>
-            <a class="color1"  style="font-size: 15px;">Tools</a>
-            <a  style="font-size: 15px;" class="color4">Git</a> 
-            <a  style="font-size: 15px;" class="color5">HTTP</a> 
-            <a class="color3"  style="font-size: 15px;">ajax</a>
-            <a class="color5"  style="font-size: 15px;">开源项目</a>
-            <a class="color4"  style="font-size: 15px;">数据库</a>
-            <a class="color4"  style="font-size: 15px;">服务器</a>
-            <a class="color3"  style="font-size: 15px;">算法</a>
-            <a class="color5"  style="font-size: 15px;">通讯协议</a>
-        </div>
-        <div id="sidebar-menu-box-tags">
-            <div id="sidebar-menu-box-tags" style="display: block;">
-            <a style="font-size: 15px;" class="color2">Apache</a> 
-            <a style="font-size: 15px;" class="color4">Api</a> 
-            <a  style="font-size: 15px;" class="color2">CentOS</a> 
-            <a  style="font-size: 15px;" class="color4">Git</a> 
-            <a  style="font-size: 15px;" class="color5">HTTP</a> 
-            <a   style="font-size: 15px;" class="color5">Hash</a> 
-            <a  style="font-size: 15px;" class="color5">Hexo</a> 
-            <a   style="font-size: 15px;" class="color5">Homestead</a> 
-            <a  style="font-size: 15px;" class="color3">Laravel</a> 
-            <a   style="font-size: 15px;" class="color1">Lumen</a> 
-            <a  style="font-size: 15px;" class="color4">Markdown</a> 
-            <a  style="font-size: 15px;" class="color5">Memcached</a>
-             <a style="font-size: 15px;" class="color1">MySQL</a> 
-             <a style="font-size: 15px;" class="color1">Nginx</a> 
-             <a  style="font-size: 15px;" class="color4">OSI</a> 
-             <a style="font-size: 15px;" class="color4">PHP</a> 
-             <a  style="font-size: 15px;" class="color5">PHP7</a> 
-             <a  style="font-size: 15px;" class="color1">Queue</a>
-              <a  style="font-size: 15px;" class="color3">RESTful</a>
-               <a style="font-size: 15px;" class="color1">Redis</a> 
-               <a style="font-size: 15px;" class="color4">SSH</a> 
-               <a style="font-size: 15px;" class="color1">Shell</a>
-                <a  style="font-size: 15px;" class="color1">Supervisor</a>
-                 <a style="font-size: 15px;" class="color4">TCP</a>
-                  <a  style="font-size: 15px;" class="color4">UDP</a> 
-                  <a  style="font-size: 15px;" class="color1">Validation</a> 
-                  <a  style="font-size: 15px;" class="color3">vagrant</a> 
-                  <a  style="font-size: 15px;" class="color3">书籍</a> 
-                  <a style="font-size: 15px;" class="color3">分享</a> 
-                  <a style="font-size: 15px;" class="color3">博客</a> 
-                  <a  style="font-size: 15px;" class="color5">开源项目</a> 
-                  <a style="font-size: 15px;" class="color5">性能优化</a> 
-                  <a  style="font-size: 15px;" class="color3">算法</a>
-                   <a style="font-size: 15px;" class="color5">跨域请求</a>
-        </div>
-        </div>
-    </div>
-    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
-</div>
-
-<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
-    <div class="mobile-header-menu-container">
-        <span class="title">Menus</span>
-        <ul class="mobile-header-menu-navbar">
-            
-            <li>
-                <a  href="/">
-                    <i class="fa fa-home"></i><span>Home</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/archives">
-                    <i class="fa fa-archive"></i><span>Archives</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/about">
-                    <i class="fa fa-user"></i><span>About</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    <div class="mobile-header-tag-container">
-        <span class="title">Tags</span>
-        <div id="mobile-header-container-tags">
-            <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/ajax/" style="font-size: 20px;">ajax</a> <a href="/tags/axios/" style="font-size: 10px;">axios</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/meta/" style="font-size: 10px;">meta</a> <a href="/tags/正则表达式/" style="font-size: 10px;">正则表达式</a>
-        </div>
-    </div>
-</div>
-<div class="search-wrap">
-    <span class="search-close">&times;</span>
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-            <i class="icon icon-lg icon-chevron-left"></i>
-        </a>
-        <input class="search-field" placeholder="Search..." id="keywords">
-        <a id="search-submit" href="javascript:;">
-            <i class="fa fa-search"></i>
-        </a>
-    <div class="search-container" id="search-container">
-        <ul class="search-result" id="search-result">
-        </ul>
-    </div>
-</div>
-
-<div id="search-tpl">
-    <li class="search-result-item">
-        <a href="{url}" class="search-item-li">
-            <span class="search-item-li-title" title="{title}">{title}</span>
-        </a>
-    </li>
-</div>
-<script src="/js/search.js"></script>
-<script src="/js/main.js"></script>
-
-
-  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
-  <div id="particles"></div>
-  <script src="/js/particles.js"></script>
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
 
 
 
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
 
 
-
-
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
-  <script src="/js/animate.js"></script>
-
-  </div>
 </body>
 </html>
