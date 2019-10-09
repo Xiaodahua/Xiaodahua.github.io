@@ -4,8 +4,8 @@
 
 # Site
 title: Xiaodahua
-subtitle: the stack of it nerds
-description: start from zero
+subtitle: 今日任务： 不熬夜 (1/1)
+description: 不熬夜 (1/1)
 author: Xiaodahua
 language: zh-CN
 timezone: Asia/Shanghai
@@ -38,7 +38,7 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace:
@@ -72,7 +72,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: miho
+theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
